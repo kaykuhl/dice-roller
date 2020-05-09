@@ -13,13 +13,14 @@ function App() {
     let sum = 0
     let currentRoll
     let allRolls = []
+    let overallRoll
     for (var i=0; i < numberRolls; i++) {
       currentRoll = Math.floor((Math.random() * diceType) + 1)
       allRolls.push(currentRoll)
       sum = sum + currentRoll
+      overallRoll = parseFloat(sum) + parseFloat(modifier)
+      setDiceRoll(overallRoll)
     }
-
-    setDiceRoll(sum)
   console.log(allRolls)
   console.log(modifier)
   }
