@@ -67,11 +67,11 @@ function App() {
             </div>
             <div className="col-sm-2">
               <h6># of Rolls</h6>
-              <input type="number" className="form-control" id="numberRolls" defaultValue = "1" onChange={e => setNumberRolls(e.target.value)}></input>
+              <input type="number" className="form-control" id="numberRolls" onChange={e => setNumberRolls(e.target.value)}></input>
             </div>
             <div className="col-sm-2">
               <h6>Modifier</h6>
-              <input type="number" className="form-control" id="Modifier" defaultValue = "0" onChange={e => setModifier(e.target.value)}></input>
+              <input type="number" className="form-control" id="Modifier" onChange={e => setModifier(e.target.value)}></input>
             </div>
             <div className="col-sm-2"><br></br>
               <button type="submit" onClick={roll} className="btn btn-primary">Roll</button>
