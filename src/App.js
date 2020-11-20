@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import './App.css';
 
 function App() {
-
   let [diceRoll, setDiceRoll] = useState([])
-  let [diceType, setDiceType] = useState([])
-  let [numberRolls, setNumberRolls] = useState([])
-  let [modifier, setModifier] = useState([])
+  let [diceType, setDiceType] = useState([20])
+  let [numberRolls, setNumberRolls] = useState([1])
+  let [modifier, setModifier] = useState([0])
   let [calculation, setCalculation] = useState([])
 
   function roll(e) {
@@ -17,13 +16,15 @@ function App() {
     let calc = ""
 
     e.preventDefault();
+
     for (var i = 0; i < numberRolls; i++) {
       currentRoll = Math.floor((Math.random() * diceType) + 1)
       allRolls.push(currentRoll)
       sum = sum + currentRoll
       overallRoll = parseFloat(sum) + parseFloat(modifier)
       setDiceRoll(overallRoll)
-    }
+      }
+    
     console.log(allRolls)
     console.log(modifier)
     allRolls.forEach((element) => {
@@ -37,7 +38,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className="jumbotron"><h1>This is How I Roll</h1> <h2>Dice Roller</h2></div>
+      <div className="jumbotron"><h1 className='header1'>This is How I Roll</h1> <h2 className='header2'>Dice Roller</h2></div>
 
       <form>
 
@@ -65,7 +66,7 @@ function App() {
                 <label><input type="radio" onChange={e => setDiceType(e.target.value)} name="d" value="12"></input>d12</label>
               </div>
               <div className="radio">
-                <label><input type="radio" onChange={e => setDiceType(e.target.value)} name="d" value="20"></input>d20</label>
+                <label><input type="radio" onChange={e => setDiceType(e.target.value)} name="d" value="20" defaultChecked></input>d20</label>
               </div>
               <div className="radio">
                 <label><input type="radio" onChange={e => setDiceType(e.target.value)} name="d" value="100"></input>d100</label>
@@ -73,11 +74,11 @@ function App() {
             </div>
             <div className="col-sm-2">
               <h6># of Rolls</h6>
-              <input type="number" className="form-control" id="numberRolls" onChange={e => setNumberRolls(e.target.value)}></input>
+              <input type="number" className="form-control" id="numberRolls" defaultValue="1" min="1" onChange={e => setNumberRolls(e.target.value)}></input>
             </div>
             <div className="col-sm-2">
               <h6>Modifier</h6>
-              <input type="number" className="form-control" id="Modifier" onChange={e => setModifier(e.target.value)}></input>
+              <input type="number" className="form-control" id="modifier" defaultValue="0" onChange={e => setModifier(e.target.value)}></input>
             </div>
             <div className="col-sm-2"><br></br>
               <button type="submit" onClick={roll} className="btn btn-primary">Roll</button>
