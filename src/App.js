@@ -67,6 +67,9 @@ function App() {
               <div className="radio">
                 <label><input type="radio" onChange={e => setDiceType(e.target.value)} name="d" value="20"></input>d20</label>
               </div>
+              <div className="radio">
+                <label><input type="radio" onChange={e => setDiceType(e.target.value)} name="d" value="100"></input>d100</label>
+              </div>
             </div>
             <div className="col-sm-2">
               <h6># of Rolls</h6>
