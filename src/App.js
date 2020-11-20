@@ -59,6 +59,9 @@ function App() {
                 <label><input type="radio" onChange={e => setDiceType(e.target.value)} name="d" value="8"></input>d8</label>
               </div>
               <div className="radio">
+                <label><input type="radio" onChange={e => setDiceType(e.target.value)} name="d" value="10"></input>d10</label>
+              </div>
+              <div className="radio">
                 <label><input type="radio" onChange={e => setDiceType(e.target.value)} name="d" value="12"></input>d12</label>
               </div>
               <div className="radio">
